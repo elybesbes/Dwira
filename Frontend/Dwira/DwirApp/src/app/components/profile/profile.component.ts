@@ -21,8 +21,13 @@ export class ProfileComponent {
 
   ngOnInit(): void {
     const user = this.authService.getUserInfoFromToken();
-    const userId = user.nameid
-    console.log('User ID:', userId);
+    console.log('User:', user);
+    if (user) {
+      const userId = user.nameid;
+      console.log('User ID:', userId);
+    } else {
+      console.error('User not found or invalid token');
+    }
   }
 
   onSelect(event: any) {

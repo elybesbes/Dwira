@@ -1,23 +1,123 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="../../../assets/dwira_logo.png" alt="logo">
-        </a>
+<!-----------------------------------NAVBAR----------------------------------------------->
 
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link" href="#">Logement</a>
-                <a class="nav-link" routerLink="/carte">Carte</a>
-                <a class="nav-link" href="#Contact">Contact</a>
+<div class="header">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="../../../assets/dwira_logo.png" alt="logo">
+            </a>
+    
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="#Home">Logement</a>
+                    <a class="nav-link" routerLink="/Carte">Carte</a>
+                    <a class="nav-link" href="#Contact">Contact</a>
+                </div>
+            </div>
+            
+            <div class="Login">
+                <span class="bars offset-md-2 fa fa-bars"></span>
+                <div class="profile-image">
+                    <img src="{{profilePhotoURL}}">
+                </div>
             </div>
         </div>
-        
-        <div class="Login">
-            <span class="offset-md-2 fa fa-bars"></span>
-            <div class="profile-image">
-                <img src="{{GetProfilePhoto()}}">
-            </div>
-        </div>
+    </nav>    
+</div>
 
+<!-----------------------------------HOME PAGE----------------------------------------------->
+
+<section id="Home">
+    <div class="body" style="background-image: linear-gradient(rgba(49, 49, 49, 0.6), rgba(49, 49, 49, 0.6)), url({{guestHouses[currentIndex].photoLink}});">
+        <div class="Home-Container">
+
+            <div class="search-box">
+                <input type="text" class="search-field destination" placeholder="Bizerte, Nabeul, ...">
+                <input type="date" class="search-field arrive date" placeholder="">
+                <input type="date" class="search-field depart date" placeholder="">
+                <input type="number" class="search-field depart date" placeholder="# de voyageurs">
+                <button class="search-btn"><span class="fa fa-search"></span></button>
+              </div>
+                          
+            <div class="box">
+                <h1>{{guestHouses[currentIndex].name }}</h1>
+                <h3><span class="fa fa-map-marker"></span> {{guestHouses[currentIndex].localization}}</h3>
+            </div>
+                    
+            <div class="timers offset-md-1">
+                <div class="timer">
+                    <h4 (click)="first()" [ngClass]="{'clicked': isFirstClicked}">Dar El Gaïed El Maâmouri</h4>
+                </div>
+                <div class="timer">
+                    <h4 (click)="second()" [ngClass]="{'clicked': isSecondClicked}">Dar la vie est belle</h4>
+                </div>
+                <div class="timer">
+                    <h4 (click)="third()" [ngClass]="{'clicked': isThirdClicked}">Le Foret bleu</h4>
+                </div>
+                <div class="timer">
+                    <h4 (click)="fourth()" [ngClass]="{'clicked': isFourthClicked}">Dar Zaghouene</h4>
+                </div>
+            </div>
+
+        </div>          
     </div>
-</nav>
+</section>
+
+  
+
+<!-----------------------------------CONTACT US----------------------------------------------->
+
+<section id="Contact">
+    <div class="">
+        <div class="container py-5" >
+            <div class="row py-5 g-3">
+                <div class="col-md-6 first_col ">
+                    <h1 class="text-center mt-3">Contact Us</h1>
+                    <form class="p-4 mt-5">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Your name</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Email Subject</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Your massage</label>
+                            <textarea  type="text" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <button class="btn btn-primary">Send Now</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6 sec_col">
+                    <img src="../../../assets/contact.jpg"
+                        class="img-fluid" alt="image houni">
+                </div>
+            </div>
+            <div class="row-last">
+                <div class="row row-cols-1 row-cols-md-3  p-3 text-white">
+                    <div class="col">
+                        <h4>CALL US</h4>
+                        <div class="col-body">
+                            <p><span class="fa fa-phone"> </span> +216 55 885 207</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h4>LOCALISATION</h4>
+                        <div class="col-body">
+                            <p><span class="fa fa-map-pin"> </span> ELGHAZELA TECHNOPARKS, Raoued, Ariana, Tunisia</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h4>EMAIL US</h4>
+                        <div class="col-body">
+                            <p><span class="fa fa-envelope"></span>dwiraapplication&#64;gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
